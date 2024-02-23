@@ -45,3 +45,7 @@ sudo dnf groupinstall -y "Development Tools"
 # Install Python 3.8
 echo "[10]: Install Python 3.8 on $(hostname)"
 sudo dnf install -y python38
+
+# Install other packages
+echo "[11]: Install other packages on $(hostname)"
+sudo dnf install -y vim nc wget
