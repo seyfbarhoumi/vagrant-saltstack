@@ -36,3 +36,12 @@ sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 # Load Almalinux GPGkey from url 
 echo "[8]: Load Almalinux GPGkey from url  on $(hostname)"
 sudo sed -i 's/file:\/\/\/etc\/pki\/rpm-gpg\/RPM-GPG-KEY-AlmaLinux/https:\/\/repo.almalinux.org\/almalinux\/RPM-GPG-KEY-AlmaLinux/g' /etc/yum.repos.d/almalinux*
+
+# Install python prerequisite
+echo "[9]: Install python prerequisite on $(hostname)"
+sudo dnf install -y openssl-devel bzip2-devel libffi-devel
+sudo dnf groupinstall -y "Development Tools"
+
+# Install Python 3.8
+echo "[10]: Install Python 3.8 on $(hostname)"
+sudo dnf install -y python38
