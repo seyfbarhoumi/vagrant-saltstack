@@ -32,3 +32,7 @@ sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 echo "[7]: Set SELinux in permissive mode on $(hostname)"
 sudo setenforce 0
 sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+
+# Load Almalinux GPGkey from url 
+echo "[8]: Load Almalinux GPGkey from url  on $(hostname)"
+sudo sed -i 's/file:\/\/\/etc\/pki\/rpm-gpg\/RPM-GPG-KEY-AlmaLinux/https:\/\/repo.almalinux.org\/almalinux\/RPM-GPG-KEY-AlmaLinux/g' /etc/yum.repos.d/almalinux*
